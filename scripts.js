@@ -39,9 +39,9 @@ class Post {
         listOFComments.innerHTML = comments;
     }
 
-    renderComment(id) {
-        let postId = id
-        let comment = `<li data-postId="${postId}">${enterOfComment.value}</li>`;
+    renderComment(el, id) {
+
+        let comment = `<li data-postId="${id}">${el}</li>`;
         listOFComments.insertAdjacentHTML("beforeend", comment)
     }
 }
@@ -68,8 +68,8 @@ async function addComment(id) {
         },
     })
     if (response.ok) {
-        let comment = await response.json()
-        post.renderComment(1)
+        let comment = await response.json();
+        post.renderComment(comment.body, id)
         enterOfComment.value = ''
     } else {
         console.error('Error')
