@@ -69,7 +69,6 @@ async function addComment(id) {
     if (response.ok) {
         let comment = await response.json();
         post.renderComment(comment.body, id)
-        enterOfComment.value = ''
     } else {
         console.error('Error')
     }
