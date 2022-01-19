@@ -40,7 +40,6 @@ class Post {
     }
 
     renderComment(el, id) {
-
         let comment = `<li data-postId="${id}">${el}</li>`;
         listOFComments.insertAdjacentHTML("beforeend", comment)
     }
